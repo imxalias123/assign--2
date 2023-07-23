@@ -1,6 +1,4 @@
 POST http://localhost:3000/register/
-
-
 Content-Type: application/json
 
 {
@@ -12,8 +10,6 @@ Content-Type: application/json
 
 ###
 POST http://localhost:3000/login/
-
-
 Content-Type: application/json
 
 {
@@ -24,49 +20,49 @@ Content-Type: application/json
 
 ###
 GET http://localhost:3000/user/tweets/feed/ 
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 ###
 
 GET http://localhost:3000/user/following/
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 
 ###
 
 GET http://localhost:3000/user/followers/
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 ###
 
 
 GET http://localhost:3000/tweets/1/
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 ###
 
 GET http://localhost:3000/tweets/2/likes/
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 ###
 
 GET http://localhost:3000/tweets/3/replies/
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 ###
 
 GET http://localhost:3000/tweets/3/replies/
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 ###
 
 GET http://localhost:3000/user/tweets/
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 
 ###
 POST http://localhost:3000/user/tweets/
-Authorization: bearer 
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
 
 Content-Type: application/json 
 
@@ -77,3 +73,4 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:3000/tweets/1/
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyLCJuYW1lIjoiSm9lIEJpZGVuIiwidXNlcm5hbWUiOiJKb2VCaWRlbiIsInBhc3N3b3JkIjoiJDJiJDEwJDJhcmU2QmE2OW9pL0NhaTRhVC9WTS50N0FPN1RzUXgvLk9nei43WEc0cWp1TWlsMHY4MGFxIiwiZ2VuZGVyIjoibWFsZSIsImlhdCI6MTY5MDExNjM5OX0.FX7NoC0LnfrAcz5RkdJO8cOGRUl-TPsxfeWfL-3c1eY
