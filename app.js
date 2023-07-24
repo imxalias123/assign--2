@@ -60,7 +60,7 @@ app.post("/register", async (request, response) => {
 
   if (dbUser === undefined) {
     if (password.length < 6) {
-      response.status = 400;
+      response.status(400);
       response.send("Password is too short");
     } else {
       const createUserQuery = `
