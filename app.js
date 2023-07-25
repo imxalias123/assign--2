@@ -343,4 +343,4 @@ app.delete(
   }
 );
 
-module.exports = app.js;
+module.exports = app;
