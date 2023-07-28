@@ -319,23 +319,24 @@ app.delete(
   "/tweets/:tweetId/",
   authenticateToken,
   async (request, response) => {
-    const { tweetId } = request;
-    const { payload } = request;
-    const { user_id, username, gender, name } = payload;
-    const deleteQuery = `
-    SELECT 
-        *
-    FROM 
-       tweet
-      WHERE 
-      tweet.user_id = ${user_id} AND
-        tweet.tweet_id = ${tweetId};
-  `;
-    const tweetUser = await db.all(deleteQuery);
-    if (tweetUser.length !== 0) {
-      `DELETE FROM tweet
-     WHERE tweet.user_id = ${user_id} AND tweet.tweet_id = ${tweetId};`;
-      await db.run(deleteQuery);
+    const { tweetId } = request.params;
+
+    const getTweetQuery = `
+    SELECT
+      *
+    FROM
+      tweet
+    WHERE tweet_id = ${tweetId}
+    `;
+    const tweet = await db.get(getTweetQuery);
+    const { user_id } = tweet;
+    if (user_id === tweet.user_id) {
+      const deleteTweetQuery = `
+      DELETE FROM
+        tweet
+      WHERE tweet_id = ${tweetId}
+      `;
+      await db.run(deleteTweetQuery);
       response.send("Tweet Removed");
     } else {
       response.status(401);
