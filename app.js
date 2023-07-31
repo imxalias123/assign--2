@@ -277,21 +277,21 @@ app.get(
 );
 
 app.get("/user/tweets/", authenticateToken, async (request, response) => {
-  const { payload } = request;
-  const { user_id, username, gender, name } = payload;
+  const { userId } = request;
 
   const getTweetQuery = `
       SELECT 
-      tweet.tweet AS tweet,
-      COUNT(DISTINCT(like.like_id) AS likes,
-      COUNT(DISTINCT(reply.reply_id) AS replies,
-      tweet.date_time AS dateTime
+      tweet,
+      COUNT(DISTINCT like_id) AS likes,
+      COUNT(DISTINCT reply_id) AS replies,
+     date_time AS dateTime
       FROM 
-      user INNER JOIN tweet ON user.user_id = tweet.user_id
-      INNER JOIN like ON tweet.tweet_id = like.tweet_id 
-      INNER JOIN reply ON reply.tweet_id = tweet.tweet_id
+      tweet
+      LEFT JOIN reply ON reply.tweet_id = tweet.tweet_id
+      LEFT JOIN like ON tweet.tweet_id = like.tweet_id 
+      
       WHERE 
-        user.user_id = ${userId}
+       tweet.user_id = ${userId}
         
       GROUP BY 
       tweet.tweet_id;`;
@@ -322,7 +322,7 @@ app.delete(
     const { tweetId } = request.params;
     const { payload } = request;
     const { username } = payload;
-    const getLoggedInUserId = `SELECT user_id FROM user WHERE username = '${username}';`;
+    const getLoggedInUserId = `SELECT * FROM user WHERE username = '${username}';`;
     const userId = await db.get(getLoggedInUserId);
 
     const getTweetQuery = `
@@ -330,12 +330,8 @@ app.delete(
     const tweet = await db.get(getTweetQuery);
     const { user_id } = tweet;
 
-    if (user_id === userId) {
-      const deleteTweetQuery = `
-      DELETE FROM
-        tweet
-      WHERE tweet_id = ${tweetId}
-      `;
+    if (user_id === userId.user_id) {
+      const deleteTweetQuery = `DELETE FROM tweet WHERE tweet_id = ${tweetId};`;
       await db.run(deleteTweetQuery);
       response.send("Tweet Removed");
     } else {
