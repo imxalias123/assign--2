@@ -320,17 +320,17 @@ app.delete(
   authenticateToken,
   async (request, response) => {
     const { tweetId } = request.params;
+    const { payload } = request;
+    const { username } = payload;
+    const getLoggedInUserId = `SELECT user_id FROM user WHERE username = '${username}';`;
+    const userId = await db.get(getLoggedInUserId);
 
     const getTweetQuery = `
-    SELECT
-      *
-    FROM
-      tweet
-    WHERE tweet_id = ${tweetId}
-    `;
+    SELECT * FROM tweet WHERE tweet_id = ${tweetId} `;
     const tweet = await db.get(getTweetQuery);
     const { user_id } = tweet;
-    if (user_id === tweet.user_id) {
+
+    if (user_id === userId) {
       const deleteTweetQuery = `
       DELETE FROM
         tweet
@@ -344,5 +344,4 @@ app.delete(
     }
   }
 );
-
 module.exports = app;
