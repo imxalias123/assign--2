@@ -277,25 +277,32 @@ app.get(
 );
 
 app.get("/user/tweets/", authenticateToken, async (request, response) => {
-  const { userId } = request;
+  const { payload } = request;
+  const { username } = payload;
+  const user_id = request.payload;
 
-  const getTweetQuery = `
-      SELECT 
-      tweet,
-      COUNT(DISTINCT like_id) AS likes,
-      COUNT(DISTINCT reply_id) AS replies,
-     date_time AS dateTime
-      FROM 
-      tweet
-      LEFT JOIN reply ON reply.tweet_id = tweet.tweet_id
-      LEFT JOIN like ON tweet.tweet_id = like.tweet_id 
-      
-      WHERE 
-       tweet.user_id = ${userId}
-        
-      GROUP BY 
-      tweet.tweet_id;`;
-  const tweetDetails = await db.all(getTweetQuery);
+  const getLoggedInUserId = `SELECT * FROM user WHERE username = '${username}';`;
+  const userDetails = await db.get(getLoggedInUserId);
+
+  const tweetsQuery = `
+        SELECT
+        tweet,
+        (
+        SELECT COUNT(like_id)
+        FROM like
+        WHERE tweet_id=tweet.tweet_id
+        ) AS likes,
+        (
+        SELECT COUNT(reply_id)
+        FROM reply
+        WHERE tweet_id=tweet.tweet_id
+        ) AS replies,
+        date_time AS dateTime
+        FROM tweet
+        WHERE user_id= ${userDetails.user_id}
+`;
+
+  const tweetDetails = await db.all(tweetsQuery);
 });
 
 app.post("/user/tweets/", authenticateToken, async (request, response) => {
