@@ -303,6 +303,7 @@ app.get("/user/tweets/", authenticateToken, async (request, response) => {
 `;
 
   const tweetDetails = await db.all(tweetsQuery);
+  response.send(tweetDetails);
 });
 
 app.post("/user/tweets/", authenticateToken, async (request, response) => {
