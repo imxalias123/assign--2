@@ -292,6 +292,7 @@ app.get("/user/tweets/", authenticateToken, async (request, response) => {
         FROM like
         WHERE tweet_id=tweet.tweet_id
         ) AS likes,
+        
         (
         SELECT COUNT(reply_id)
         FROM reply
