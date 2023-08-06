@@ -158,7 +158,7 @@ app.get("/user/followers/", authenticateToken, async (request, response) => {
 });
 
 app.get("/tweets/:tweetId/", authenticateToken, async (request, response) => {
-  const { tweetId } = request;
+  const { tweetId } = request.params;
   const { payload } = request;
   const { user_id, username, gender, name } = payload;
 
@@ -202,7 +202,7 @@ app.get(
   "/tweets/:tweetId/likes/",
   authenticateToken,
   async (request, response) => {
-    const { tweetId } = request;
+    const { tweetId } = request.params;
     const { payload } = request;
     const { user_id, username, gender, name } = payload;
 
@@ -239,7 +239,7 @@ app.get(
   "/tweets/:tweetId/replies/",
   authenticateToken,
   async (request, response) => {
-    const { tweetId } = request;
+    const { tweetId } = request.params;
     const { payload } = request;
     const { user_id, username, gender, name } = payload;
 
